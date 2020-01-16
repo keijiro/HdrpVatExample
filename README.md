@@ -75,6 +75,12 @@ initially emit "texture size * 3" particles using the Single Burst block.
 Frequently Asked Questions
 --------------------------
 
+#### Is it possible to support Universal RP?
+
+Yes. Although these examples are created with HDRP, you can use the same
+approach on Universal RP. These shader graphs and VFX graphs can be converted
+by changing a few options.
+
 #### Can I use the "Export for Mobile" option or a texture compression method?
 
 It depends on the case -- It may work with an acceptable amount of errors in
