@@ -9,8 +9,8 @@
     }
   ],
   "dependencies": {
-    "jp.keijiro.test-assets": "1.0.1",
-    "com.unity.render-pipelines.high-definition": "7.1.6",
-    "com.unity.timeline": "1.2.9"
+    "com.unity.render-pipelines.high-definition": "7.1.7",
+    "com.unity.timeline": "1.2.10",
+    "jp.keijiro.test-assets": "1.0.1"
   }
 }
