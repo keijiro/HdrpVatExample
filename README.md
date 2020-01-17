@@ -23,18 +23,18 @@ System requirements
 Supported VAT methods
 ---------------------
 
-- The Shader Graph example only supports the "Soft (Consistent Topology)"
-  method.
+- The Shader Graph example only supports the "Soft (Constant Topology)" method.
 - The Visual Effect Graph example only supports the "Sprite (Camera Facing
   Cards)" method.
 
 How to use VAT with Shader Graph
 --------------------------------
 
-At first, export a geometry (`.fbx`), textures (`.exr`) and realtime data
-(`.json`) from Houdini using the VAT exporter and import `.fbx` and `.exr`
-files into Unity. Note that the texture files should be imported with the
-following settings:
+At first, export VAT files from Houdini: It consists of a geometry file
+(`.fbx`), texture files (`.exr`) and realtime data file (`.json`).
+
+Then import `.fbx` and `.exr` files into Unity. The texture files must be
+imported with the following settings:
 
 - sRGB (Color Texture): Off
 - Non-Power of 2: None
@@ -43,7 +43,7 @@ following settings:
   BPP format with sacrificing quality. For normal maps, "RGB 16 bit" is
   recommended.
 - Compression: "None" is recommended. You can try other options, but usually
-  they don't work under a non-power of two resolution.
+  they don't work with non-power of two textures.
 
 ![importer](https://i.imgur.com/01SK60b.png)
 
@@ -57,7 +57,7 @@ copy-paste these values to the material properties.
 
 You can use the packed-normal encoding (the "Pack normals into Position Alpha"
 option in the VAT exporter) with enabling the "Use Packed Normals" option in
-the material. Note that it significantly increases the quantization error in
+the material. Note that it may significantly increase the quantization error in
 normal vectors.
 
 To animate the mesh, you have to control the "Current Frame" property manually.
