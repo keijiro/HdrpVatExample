@@ -23,46 +23,54 @@ System requirements
 Supported VAT methods
 ---------------------
 
-- The Shader Graph example only supports the "Soft (Consistent Topology)"
-  method.
+- The Shader Graph example only supports the "Soft (Constant Topology)" method.
 - The Visual Effect Graph example only supports the "Sprite (Camera Facing
   Cards)" method.
 
 How to use VAT with Shader Graph
 --------------------------------
 
-At first, export textures (`.exr`) and a static mesh (`.fbx`) from Houdini using
-the VAT exporter and import those files into Unity. Note that the texture files
-should be imported as raw SFloat textures (see the screenshot below for
-detailed import settings).
+At first, export VAT files from Houdini: It consists of a geometry file
+(`.fbx`), texture files (`.exr`) and realtime data file (`.json`).
 
-![importer](https://i.imgur.com/8Po44HC.png)
+Then import `.fbx` and `.exr` files into Unity. The texture files must be
+imported with the following settings:
+
+- sRGB (Color Texture): Off
+- Non-Power of 2: None
+- Generate Mip Maps: Off
+- Format: For position maps, "Automatic" is recommended. You can select a lower
+  BPP format with sacrificing quality. For normal maps, "RGB 16 bit" is
+  recommended.
+- Compression: "None" is recommended. You can try other options, but usually
+  they don't work with non-power of two textures.
+
+![importer](https://i.imgur.com/01SK60b.png)
 
 You can use a shader graph named "Shader Graph/Cloth" to animate the mesh.
 
-![material](https://i.imgur.com/rPJYxjW.png)
+![material](https://i.imgur.com/tyLWdYQ.png)
 
-The "BBOX MIN"/"BBOX MAX" and "Number of Frames" properties must be set based
-on the export settings. These BBOX values are shown in Houdini when an exporting
-is done. When calculating the number of frames, note that you shouldn't take the
-last frame into account. For example, when the start frame is 1, and the end
-frame is 100, the "Number of Frames" must be set to 99.
+The "\_numOfFrames", "\_posMax" and "\_posMin" properties must be set based on
+the realtime data. Open the exported `.json` file with a text editor and
+copy-paste these values to the material properties.
 
-You can also use the packed-normal encoding where the exporter embeds normal
-vectors into the alpha channel of the position map. To use this option, enable
-"Use Packed Normal" and unset the Normal Map property.
+You can use the packed-normal encoding (the "Pack normals into Position Alpha"
+option in the VAT exporter) with enabling the "Use Packed Normals" option in
+the material. Note that it may significantly increase the quantization error in
+normal vectors.
 
 To animate the mesh, you have to control the "Current Frame" property manually.
 In the "Cloth" example, this property is controlled by a timeline.
 
 The structure of the shader graph is quite simple. You can easily extend it to
 add features, like adding a color map or support of different surface types.
+For example, in the "Cloth" example, it uses an extended shader graph named
+"Cloth Lerp" that interpolates positions/normals between consecutive frames to
+achieve smooth animation.
 
 How to use VAT with Visual Effect Graph
 ---------------------------------------
-
-As same as the Shader Graph example, VAT textures  should be imported as raw
-SFloat textures.
 
 You can use a custom subgraph block named "Set VAT Attributes" that updates the
 position and color attributes based on the given VATs.
@@ -80,9 +88,3 @@ Frequently Asked Questions
 Yes. Although these examples are created with HDRP, you can use the same
 approach on Universal RP. These shader graphs and VFX graphs can be converted
 by changing a few options.
-
-#### Can I use the "Export for Mobile" option or a texture compression method?
-
-It depends on the case -- It may work with an acceptable amount of errors in
-some cases, but it may glitch in some other cases. A trial-and-error approach
-would be required.

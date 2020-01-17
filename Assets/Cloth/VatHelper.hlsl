@@ -13,12 +13,12 @@ void GetVertexFromVat_float(
     // UV, Frame -> Texture sample point
     int t_w, t_h;
     positionMap.GetDimensions(t_w, t_h);
-    int v_offs = (int)clamp(currentFrame, 0, totalFrame - 1) * (t_h / (int)totalFrame);
+    int v_offs = (int)clamp(currentFrame, 0, totalFrame - 1) * (int)(t_h / totalFrame);
     int3 tsp = int3(uv * float2(t_w, t_h), 0) - int3(0, v_offs, 0);
 
     // Position sample and coordinate system conversion (Houdini -> Unity)
     float4 p_sample = positionMap.Load(tsp);
-    float3 p = lerp(bounds.x, bounds.y, p_sample.xyz) * 0.01;
+    float3 p = lerp(bounds.x, bounds.y, p_sample.xyz);
     outPosition = position + p.xzy * float3(-1, 1, 1);
 
 #ifdef _PACKED_NORMAL_ON
