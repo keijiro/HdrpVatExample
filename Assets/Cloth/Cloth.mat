@@ -139,12 +139,12 @@ Material:
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 0
-    - _BoundsMax: 52.32
-    - _BoundsMin: -81.04
+    - _BoundsMax: 0.5232
+    - _BoundsMin: -0.8104
     - _CoatMask: 0
     - _CullMode: 0
     - _CullModeForward: 0
-    - _CurrentFrame: 12
+    - _CurrentFrame: 18
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
