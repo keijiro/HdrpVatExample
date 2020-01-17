@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cloth
-  m_Shader: {fileID: -6465566751694194690, guid: 930cbf8a57d9980c187badf4751be91b,
+  m_Name: Cloth Lerp
+  m_Shader: {fileID: -6465566751694194690, guid: 6ed4ad73e42b6eb0ba82ae4fc0ac7b4e,
     type: 3}
   m_ShaderKeywords: _DOUBLESIDED_ON
   m_LightmapFlags: 4
@@ -144,7 +144,7 @@ Material:
     - _CoatMask: 0
     - _CullMode: 0
     - _CullModeForward: 0
-    - _CurrentFrame: 18
+    - _CurrentFrame: 14
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
