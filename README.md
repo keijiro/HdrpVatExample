@@ -9,10 +9,10 @@ This is a repository that contains examples of the use of VAT (Vertex Animation
 Texture) on Unity High Definition Render Pipeline (HDRP).
 
 In this document, "VAT" refers explicitly to the texture encoding method used
-in Houdini's [Game Development Toolset].
+in Houdini's [SideFX Labs].
 
-[Game Development Toolset]:
-  https://github.com/sideeffects/GameDevelopmentToolset
+[SideFX Labs]:
+  https://github.com/sideeffects/SideFXLabs
 
 System requirements
 -------------------
