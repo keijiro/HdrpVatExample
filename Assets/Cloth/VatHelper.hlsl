@@ -1,6 +1,6 @@
 void GetVertexFromVat_float(
     float3 position,
-    float2 uv,
+    float2 uv1,
     Texture2D positionMap,
     Texture2D normalMap,
     float2 bounds,
@@ -14,7 +14,7 @@ void GetVertexFromVat_float(
     int t_w, t_h;
     positionMap.GetDimensions(t_w, t_h);
     int v_offs = (int)clamp(currentFrame, 0, totalFrame - 1) * (int)(t_h / totalFrame);
-    int3 tsp = int3(uv * float2(t_w, t_h), 0) - int3(0, v_offs, 0);
+    int3 tsp = int3(uv1 * float2(t_w, t_h), 0) - int3(0, v_offs, 0);
 
     // Position sample and coordinate system conversion (Houdini -> Unity)
     float4 p_sample = positionMap.Load(tsp);
@@ -38,7 +38,7 @@ void GetVertexFromVat_float(
 
     // Normal vector sample and coordinate system conversion
     float4 n_sample = normalMap.Load(tsp);
-    outNormal = (n_sample.xzy * 2 - 1) * float3(-1, 1, 1);
+    outNormal = n_sample.xzy * float3(-1, 1, 1);
 
 #endif
 }
