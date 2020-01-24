@@ -69,17 +69,6 @@ For example, in the "Cloth" example, it uses an extended shader graph named
 "Cloth Lerp" that interpolates positions/normals between consecutive frames to
 achieve smooth animation.
 
-How to use VAT with Visual Effect Graph
----------------------------------------
-
-You can use a custom subgraph block named "Set VAT Attributes" that updates the
-position and color attributes based on the given VATs.
-
-![block](https://i.imgur.com/sCVyPtP.png)
-
-Note that a sprite VAT can contain "texture size * 3" particles. It should
-initially emit "texture size * 3" particles using the Single Burst block.
-
 Frequently Asked Questions
 --------------------------
 
