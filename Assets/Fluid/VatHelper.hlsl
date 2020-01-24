@@ -37,7 +37,7 @@ void GetVertexFromVat_float(
 
     // Normal vector sample and coordinate system conversion
     float4 n_sample = normalMap.Load(tsp);
-    outNormal = (n_sample.xzy * 2 - 1) * float3(-1, 1, 1);
+    outNormal = n_sample.xzy * float3(-1, 1, 1);
 
 #endif
 }
