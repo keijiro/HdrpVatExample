@@ -41,7 +41,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.Vector1_301DFC4C
+    attribute: material._CurrentFrame
     path: 
     classID: 23
     script: {fileID: 0}
@@ -106,7 +106,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material.Vector1_301DFC4C
+    attribute: material._CurrentFrame
     path: 
     classID: 23
     script: {fileID: 0}

@@ -143,6 +143,8 @@ Material:
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _BlendMode: 0
+    - _BoundMax: 0.5232
+    - _BoundMin: -0.8104
     - _BoundsMax: 0.5232
     - _BoundsMin: -0.8104
     - _CoatMask: 0
