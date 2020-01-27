@@ -1,8 +1,10 @@
 VAT (Vertex Animation Texture) on Unity HDRP examples
 =====================================================
 
-![gif](https://i.imgur.com/WyMafY5.gif)
-![gif](https://i.imgur.com/nDqyEKa.gif)
+![gif](https://i.imgur.com/Ctsa3av.gif)
+![gif](https://i.imgur.com/rYmtjLZ.gif)
+![gif](https://i.imgur.com/n4WL4Qy.gif)
+![gif](https://i.imgur.com/idCLijy.gif)
 
 This is a repository that contains examples of the use of VAT (Vertex Animation
 Texture) on Unity High Definition Render Pipeline (HDRP).
