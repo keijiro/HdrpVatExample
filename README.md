@@ -1,11 +1,6 @@
 VAT (Vertex Animation Texture) on Unity HDRP examples
 =====================================================
 
-![gif](https://i.imgur.com/Ctsa3av.gif)
-![gif](https://i.imgur.com/rYmtjLZ.gif)
-![gif](https://i.imgur.com/n4WL4Qy.gif)
-![gif](https://i.imgur.com/idCLijy.gif)
-
 This is a repository that contains examples of the use of VAT (Vertex Animation
 Texture) on Unity High Definition Render Pipeline (HDRP).
 
@@ -13,6 +8,13 @@ In this document, "VAT" refers explicitly to the texture encoding method used
 in Houdini and [SideFX Labs].
 
 [SideFX Labs]: https://github.com/sideeffects/SideFXLabs
+
+![gif](https://i.imgur.com/Ctsa3av.gif)
+![gif](https://i.imgur.com/rYmtjLZ.gif)
+![gif](https://i.imgur.com/n4WL4Qy.gif)
+![gif](https://i.imgur.com/idCLijy.gif)
+
+*Several types of VAT: Cloth, Fluid, Rigid and Sprite*
 
 System requirements
 -------------------
