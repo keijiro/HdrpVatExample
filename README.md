@@ -95,4 +95,6 @@ Frequently Asked Questions
 
 Yes. Although these examples are created with HDRP, you can use the same
 approach on Universal RP. These shader graphs and VFX graphs can be converted
-by changing a few options.
+by changing a few options. Check [the URP branch] for details.
+
+[the URP branch]: https://github.com/keijiro/HdrpVatExample/tree/urp
