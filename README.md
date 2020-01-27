@@ -1,18 +1,16 @@
-VAT (Vertex Animation Texture) on HDRP examples
-===============================================
+VAT (Vertex Animation Texture) on Unity HDRP examples
+=====================================================
 
 ![gif](https://i.imgur.com/WyMafY5.gif)
-
-![gif](https://i.imgur.com/9FNn6sv.gif)
+![gif](https://i.imgur.com/nDqyEKa.gif)
 
 This is a repository that contains examples of the use of VAT (Vertex Animation
 Texture) on Unity High Definition Render Pipeline (HDRP).
 
 In this document, "VAT" refers explicitly to the texture encoding method used
-in Houdini's [SideFX Labs].
+in Houdini and [SideFX Labs].
 
-[SideFX Labs]:
-  https://github.com/sideeffects/SideFXLabs
+[SideFX Labs]: https://github.com/sideeffects/SideFXLabs
 
 System requirements
 -------------------
@@ -20,54 +18,71 @@ System requirements
 - Unity 2019.3
 - HDRP 7.1
 
-Supported VAT methods
----------------------
-
-- The Shader Graph example only supports the "Soft (Constant Topology)" method.
-- The Visual Effect Graph example only supports the "Sprite (Camera Facing
-  Cards)" method.
-
 How to use VAT with Shader Graph
 --------------------------------
 
-At first, export VAT files from Houdini: It consists of a geometry file
-(`.fbx`), texture files (`.exr`) and realtime data file (`.json`).
-
-Then import `.fbx` and `.exr` files into Unity. The texture files must be
-imported with the following settings:
+At first, export VAT files from Houdini. It consists of a geometry file
+(`.fbx`), texture files (`.exr`) and a realtime data file (`.json`). Then
+import `.fbx` and `.exr` files into Unity. The texture files must be imported
+with the following settings:
 
 - sRGB (Color Texture): Off
 - Non-Power of 2: None
 - Generate Mip Maps: Off
-- Format: For position maps, "Automatic" is recommended. You can select a lower
-  BPP format with sacrificing quality. For normal maps, "RGB 16 bit" is
-  recommended.
-- Compression: "None" is recommended. You can try other options, but usually
+- Format: "Automatic" is recommended. You can select a lower BPP format with
+  sacrificing quality.
+- Compression: "None" is recommended. You can try other options, but usually,
   they don't work with non-power of two textures.
 
 ![importer](https://i.imgur.com/01SK60b.png)
 
-You can use a shader graph named "Shader Graph/Cloth" to animate the mesh.
+There are three types of shader graphs under the "Shader Graph" group: Cloth,
+Fluid, and Rigid. You can use corresponding VAT methods with these shader
+graphs.
+
+These shader graphs have some VAT dependent properties.
 
 ![material](https://i.imgur.com/tyLWdYQ.png)
 
 The "\_numOfFrames", "\_posMax" and "\_posMin" properties must be set based on
 the realtime data. Open the exported `.json` file with a text editor and
-copy-paste these values to the material properties.
+copy-paste these values to the corresponding properties.
 
 You can use the packed-normal encoding (the "Pack normals into Position Alpha"
 option in the VAT exporter) with enabling the "Use Packed Normals" option in
-the material. Note that it may significantly increase the quantization error in
-normal vectors.
+the material settings. Note that this may significantly increase the
+quantization errors in normal vectors.
 
 To animate the mesh, you have to control the "Current Frame" property manually.
-In the "Cloth" example, this property is controlled by a timeline.
+Using a timeline would be the handiest way to do it.
 
 The structure of the shader graph is quite simple. You can easily extend it to
-add features, like adding a color map or support of different surface types.
-For example, in the "Cloth" example, it uses an extended shader graph named
-"Cloth Lerp" that interpolates positions/normals between consecutive frames to
+add features, like adding a albedo map or support of different surface types.
+
+For example, an extended shader graph named "Cloth Lerp" is used in the Cloth
+example, that interpolates positions/normals between consecutive frames to
 achieve smooth animation.
+
+How to use VAT with Visual Effect Graph
+---------------------------------------
+
+You can use a Sprite VAT to move particles in a Visual Effect graph; Other
+methods are not supported at the moment.
+
+This project contains the following three subgraph operators that are designed
+to be used with VAT.
+
+**VAT Particle Count** -- Calculates the number of particles contained in VAT.
+This is convenient to determine the number of particles to emit in the Spawn
+context.
+
+**VAT Particle UV** -- Calculates the texture coordinates for each particle.
+This can be used to retrieve data from a position map.
+
+**VAT Convert Position** -- Converts position data into a object space position
+vector.
+
+For detailed usage of these operators, see Sprite example in this project.
 
 Frequently Asked Questions
 --------------------------
