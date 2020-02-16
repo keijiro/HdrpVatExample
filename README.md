@@ -14,7 +14,7 @@ in Houdini and [SideFX Labs].
 ![gif](https://i.imgur.com/n4WL4Qy.gif)
 ![gif](https://i.imgur.com/idCLijy.gif)
 
-*Several types of VAT: Cloth, Fluid, Rigid and Sprite*
+*Several types of VAT: Soft, Rigid, Fluid and Sprite*
 
 System requirements
 -------------------
@@ -40,8 +40,8 @@ with the following settings:
 
 ![importer](https://i.imgur.com/01SK60b.png)
 
-There are three types of shader graphs under the "Shader Graph" group: Cloth,
-Fluid, and Rigid. You can use corresponding VAT methods with these shader
+There are three types of shader graphs under the "Shader Graph" group: Soft,
+Rigid, and Fluid. You can use corresponding VAT methods with these shader
 graphs.
 
 These shader graphs have some VAT dependent properties.
@@ -63,7 +63,7 @@ Using a timeline would be the handiest way to do it.
 The structure of the shader graph is quite simple. You can easily extend it to
 add features, like adding a albedo map or support of different surface types.
 
-For example, an extended shader graph named "Cloth Lerp" is used in the Cloth
+For example, an extended shader graph named "Soft Lerp" is used in the Soft
 example, that interpolates positions/normals between consecutive frames to
 achieve smooth animation.
 

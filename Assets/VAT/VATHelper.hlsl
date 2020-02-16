@@ -39,8 +39,8 @@ float3 VAT_UnpackAlpha(float a)
     return clamp(n3, -1, 1);
 }
 
-// Vertex function for cloth VAT
-void ClothVAT_float(
+// Vertex function for soft VAT
+void SoftVAT_float(
     float3 position,
     float2 uv1,
     Texture2D positionMap,

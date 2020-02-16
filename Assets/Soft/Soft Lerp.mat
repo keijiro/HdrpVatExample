@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cloth Lerp
+  m_Name: Soft Lerp
   m_Shader: {fileID: -6465566751694194690, guid: 6ed4ad73e42b6eb0ba82ae4fc0ac7b4e,
     type: 3}
   m_ShaderKeywords: _DOUBLESIDED_ON
