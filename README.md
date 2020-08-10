@@ -19,8 +19,8 @@ in Houdini and [SideFX Labs].
 System requirements
 -------------------
 
-- Unity 2019.3
-- HDRP 7.1
+- Unity 2019.4
+- HDRP 7.4
 
 How to use VAT with Shader Graph
 --------------------------------
